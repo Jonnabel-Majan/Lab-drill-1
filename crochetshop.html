@@ -1,0 +1,271 @@
+<!DOCTYPE html>     
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonnabel's Handmade Crochet</title>
+    <link rel="icon" type="image/png" href="images/yarns.jpg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fffaf0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #D16BA5, #bf5f82);
+            color: white;
+            padding: 35px;
+            text-align: center;
+            font-size: 45px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #bf5f82;
+            padding: 14px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            margin: 0 12px;
+            font-size: 20px;
+            font-weight: 500;
+            background: #D16BA5;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+        nav a:hover {
+            background: #a14c6b;
+            transform: translateY(-3px);
+        }
+
+        
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('images/yarn-background.webp') no-repeat center center/cover;
+            color: white;
+            height: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+        }
+        .hero h1 {
+            font-size: 70px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #D16BA5;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+
+        }
+        .hero p {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #D16BA5;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+        }
+
+        .buttons a {
+            display: inline-block;
+            background: #D16BA5;
+            color: white;
+            padding: 16px 34px;
+            text-decoration: none;
+            font-size: 25px;
+            border-radius: 10px;
+            margin: 10px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        .buttons a:hover {
+            background: #a14c6b;
+            transform: scale(1.1);
+        }
+
+        
+        .featured {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(to right, white, #d16ba5);
+        }
+
+        .featured h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-top: 0px;
+            margin-bottom: 50px;
+            color: #D16BA5;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .product {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .product img {
+            width: 100%;
+            height: 250px; /* Increased height */
+            object-fit: cover;
+            border-radius: 15px;
+            transition: 0.3s ease-in-out;
+        }
+        .product img:hover {
+            transform: scale(1.05);
+        }
+        .product h3 {
+            font-size: 22px;
+            margin-top: 12px;
+            font-weight: 600;
+            color: #a14c6b;
+        }
+        .view-more {
+            display: inline-block;
+            background: #D16BA5;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-top: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .view-more:hover {
+            background: #a14c6b;
+            transform: scale(1.1);
+        }
+
+
+        footer {
+            background: linear-gradient(135deg, #D16BA5, #bf5f82);
+            color: white;
+            text-align: center;
+            padding: 1px 20px;
+            font-size: 18px;
+            font-weight: 500;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .footer-contact, .footer-socials {
+            margin: 10px 20px;
+        }
+        .footer-contact h3, .footer-socials h3 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        .social-icon {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        .social-icon:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+        .footer-copy {
+            margin-top: 20px;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Jonnabel's Handmade Crochet</header>
+
+    <div class="hero">
+        <h1>Handcrafted with Love</h1>
+        <p>Explore our unique crocheted creations</p>
+        <div class="buttons">
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="account.html">Account</a>
+        </div>
+    </div>
+
+    <div class="featured">
+        <h2>Featured Products</h2>
+        <div class="products">
+            <div class="product">
+                <img src="images/keychains.jpg" alt="Product 1">
+                <h3>Keychains</h3>
+                <a href="about.html?product=keychains" class="view-more">View More</a>
+            </div>
+            <div class="product">
+                <img src="images/flowers.jpg" alt="Product 3">
+                <h3>Crochet Flowers</h3>
+                <a href="about.html?product=flowers" class="view-more">View More</a>
+            </div>
+
+            <div class="product">
+                <img src="images/bandana.jpg" alt="Product 4">
+                <h3>Bandanas</h3>
+                <a href="about.html?product=bandanas" class="view-more">View More</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-contact">
+                <h3>📞 Contact Us</h3>
+                <p>Email: <a href="https://g.co/kgs/TxM2F7h">JonnabelCrochet@gmail.com</a></p>
+            </div>
+            <div class="footer-socials">
+                <h3>🌍 Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/" target="_blank" class="social-icon">FB: Jocrochet</a>
+                    <a href="https://www.instagram.com/" target="_blank" class="social-icon">IG: Jocrochet</a>
+                </div>
+            </div>
+        </div>
+        <p>PROGRAMMED AND DEVELOPED BY JONNABEL E. MAJAN</p>
+    </footer>
+
+</body>
+</html>

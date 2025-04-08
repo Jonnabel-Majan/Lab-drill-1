@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Jonnabel's Handmade Crochet</title>
+    <link rel="icon" type="image/png" href="images/yarns.jpg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, white, #d16ba5);
+        }
+        header {
+            background: linear-gradient(135deg, #D16BA5, #bf5f82);
+            color: white;
+            padding: 35px;
+            text-align: center;
+            font-size: 45px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #bf5f82;
+            padding: 14px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            margin: 0 12px;
+            font-size: 30px;
+            font-weight: 500;
+            background: #D16BA5;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+        nav a:hover {
+            background: #a14c6b;
+            transform: translateY(-3px);
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            text-align: center;
+        }
+        .container h1{
+            font-size: 40px;
+            color: #D16BA5;;    
+        }
+        .cart-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s ease;
+        }
+        .cart-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+        }
+        .cart-item button {
+            background: #d16ba5;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+        .cart-item button:hover {
+            background: #a14c6b;
+            transform: scale(1.1);
+        }
+        #total-payment {
+            font-size: 22px;
+            font-weight: bold;
+            color: #a14c6b;
+            margin-top: 20px;
+            display: none;
+        }
+        #checkout-btn {
+            background: #d16ba5;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            display: block;
+            margin: 20px auto;
+        }
+
+        #checkout-btn:hover {
+            background: #a14c6b;
+            transform: scale(1.1);
+        }
+
+        /* Receipt Modal Styling */
+        .receipt-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        .receipt-content h2 {
+            font-size: 25px;
+            color: #d16ba5;
+        }
+
+        .receipt-content p {
+            font-size: 20px;
+            color: #d16ba5;
+            margin: 8px 0;
+        }
+
+        .order-status {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+
+        .receipt-modal button {
+            background: #d16ba5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 6px;
+        }
+
+        .receipt-modal button:hover {
+            background: #a14c6b;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #D16BA5, #bf5f82);
+            color: white;
+            text-align: center;
+            padding: 1px 20px;
+            font-size: 18px;
+            font-weight: 500;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .footer-contact, .footer-socials {
+            margin: 10px 20px;
+        }
+        .footer-contact h3, .footer-socials h3 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        .social-icon {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        .social-icon:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+        .footer-copy {
+            margin-top: 20px;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+        .custom-alert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 300px;
+            z-index: 1000;
+        }
+        .custom-alert p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .custom-alert button {
+            background: #d16ba5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .custom-alert button:hover {
+            background: #a14c6b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Jonnabel's Handmade Crochet</header>
+
+    <nav>
+        <a href="crochetshop.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="account.html">Account</a>
+    </nav>
+
+    <div class="container">
+        <h1>Your Cart</h1>
+        <div id="cart-items"></div>
+        <p id="total-payment">Total: ₱0.00</p>
+
+        <button id="checkout-btn" onclick="checkout()">Check Out</button>
+
+    <div id="receiptModal" class="receipt-modal">
+        <div class="receipt-content">
+            <h2>🧾 Order Receipt</h2>
+            <p><strong>Thank you for your order!</strong></p>
+            <div id="receipt-items"></div>
+            <p id="receipt-total"></p>
+            <p class="order-status">📦 Status: Out for Delivery</p>
+            <button onclick="closeReceipt()">OK</button>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-contact">
+                <h3>📞 Contact Us</h3>
+                <p>Email: <a href="https://g.co/kgs/TxM2F7h">JonnabelCrochet@gmail.com</a></p>
+            </div>
+            <div class="footer-socials">
+                <h3>🌍 Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/" target="_blank" class="social-icon">FB: Jocrochet</a>
+                    <a href="https://www.instagram.com/" target="_blank" class="social-icon">IG: Jocrochet</a>
+                </div>
+            </div>
+        </div>
+        <p>PROGRAMMED AND DEVELOPED BY JONNABEL E. MAJAN</p>
+    </footer>
+
+    <div id="customAlert" class="custom-alert">
+        <p id="alertMessage"></p>
+        <button onclick="closeAlert()">OK</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartContainer = document.getElementById("cart-items");
+        const totalPayment = document.getElementById("total-payment");
+        let totalPrice = 0;
+
+        if (cart.length > 0) {
+            cart.forEach((item, index) => {
+                let cartItemDiv = document.createElement("div");
+                cartItemDiv.classList.add("cart-item");
+                cartItemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <p>${item.name} - ₱${parseFloat(item.price).toFixed(2)}</p>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartContainer.appendChild(cartItemDiv);
+
+                totalPrice += item.price; 
+            });
+
+            totalPayment.style.display = "block";
+            totalPayment.innerText = `Total: ₱${totalPrice.toFixed(2)}`;
+        } else {
+            cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+            totalPayment.style.display = "none";
+        }
+    });
+
+    function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            location.reload(); // Refresh the page to update cart display
+    }
+    function checkout() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            let receiptItems = document.getElementById("receipt-items");
+            let receiptTotal = document.getElementById("receipt-total");
+            let totalAmount = 0;
+
+            receiptItems.innerHTML = "";
+            cart.forEach(item => {
+                let itemDiv = document.createElement("p");
+                itemDiv.textContent = `${item.name} - ₱${item.price.toFixed(2)}`;
+                receiptItems.appendChild(itemDiv);
+                totalAmount += item.price;
+            });
+
+            receiptTotal.innerHTML = `<strong>Total: ₱${totalAmount.toFixed(2)}</strong>`;
+
+            document.getElementById("receiptModal").style.display = "block";
+
+            // Clear cart after checkout
+            localStorage.removeItem("cart");
+            document.getElementById("cart-items").innerHTML = "<p><span style='color: #a14c6b;'> Your cart is empty.</span></p>";
+            document.getElementById("total-payment").style.display = "none";
+        }
+
+        function closeReceipt() {
+            document.getElementById("receiptModal").style.display = "none";
+    }
+
+
+
+</script>
+
+</body>
+</html>

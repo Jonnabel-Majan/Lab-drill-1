@@ -1,0 +1,194 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Jonnabel's Handmade Crochet</title>
+    <link rel="icon" type="image/png" href="images/yarns.jpg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, white, #d16ba5);
+        }
+        header {
+            background: linear-gradient(135deg, #D16BA5, #bf5f82);
+            color: white;
+            padding: 35px;
+            text-align: center;
+            font-size: 45px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #bf5f82;
+            padding: 14px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            margin: 0 12px;
+            font-size: 30px;
+            font-weight: 500;
+            background: #D16BA5;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+        nav a:hover {
+            background: #a14c6b;
+            transform: translateY(-3px);
+        }
+        .container {
+            max-width: 800px;
+            margin: 70px auto;
+            padding: 70px;
+            text-align: center;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .container h2 {
+            font-size: 40px;
+            font-weight: 600;
+            color: #d16ba5;
+            margin-bottom: 15px;
+        }
+        .container p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #555;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #D16BA5, #bf5f82);
+            color: white;
+            text-align: center;
+            padding: 1px 20px;
+            font-size: 18px;
+            font-weight: 500;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .footer-contact, .footer-socials {
+            margin: 10px 20px;
+        }
+        .footer-contact h3, .footer-socials h3 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        .social-icon {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        .social-icon:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+        .footer-copy {
+            margin-top: 20px;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Jonnabel's Handmade Crochet</header>
+
+    <nav>
+        <a href="crochetshop.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="account.html">Account</a>
+    </nav>
+
+    <div class="container">
+        <h2>Welcome to Jonnabel's Handmade Crochet!</h2>
+        <p>     We make crochet keychains, flowers, and bandanas with love and care. Every item is handmade to bring joy and beauty to your life.
+        Whether you want a cute accessory, a special gift, or something unique, we are happy to create it for you. Thank you for supporting handmade products! 🌸💖</p>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-contact">
+                <h3>📞 Contact Us</h3>
+                <p>Email: <a href="https://g.co/kgs/TxM2F7h">JonnabelCrochet@gmail.com</a></p>
+            </div>
+            <div class="footer-socials">
+                <h3>🌍 Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/" target="_blank" class="social-icon">FB: Jocrochet</a>
+                    <a href="https://www.instagram.com/" target="_blank" class="social-icon">IG: Jocrochet</a>
+                </div>
+            </div>
+        </div>
+        <p>PROGRAMMED AND DEVELOPED BY JONNABEL E. MAJAN</p>
+    </footer>
+    <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get("product");
+
+    const productDescriptions = {
+        keychains: {
+            title: "Crochet Keychains",
+            description: "<span style='color: #a14c6b;'>Our crochet keychains are crafted with love, making them perfect gifts or accessories.</span>",
+            image: "images/keychains.jpg"
+        },
+        flowers: {
+            title: "Crochet Flowers",
+            description: "<span style='color: #a14c6b;'>These crochet flowers never fade! A perfect way to decorate your space or give as a thoughtful gift that lasts forever.</span>",
+            image: "images/flowers.jpg"
+        },
+        bandanas: {
+            title: "Crochet Bandanas",
+            description: "<span style='color: #a14c6b;'>Stylish and lightweight, our crochet bandanas add a unique touch to your outfit.</span>",
+            image: "images/bandana.jpg"
+        }
+    };
+
+    
+    const container = document.querySelector(".container");
+
+    
+    if (productDescriptions[product]) {
+        container.innerHTML = `
+            <h2>${productDescriptions[product].title}</h2>
+            <img src="${productDescriptions[product].image}" alt="${product}" style="width:100%; max-width:400px; border-radius: 10px;">
+            <p>${productDescriptions[product].description}</p>
+        `;
+    } else {
+        container.innerHTML = "<h2>Welcome to Jonnabel's Handmade Crochet!</h2><p> <span style='color: #a14c6b;'>   We make crochet keychains, flowers, and bandanas with love and care. Every item is handmade to bring joy and beauty to your life.</br>Whether you want a cute accessory, a special gift, or something unique, we are happy to create it for you. Thank you for supporting handmade products! 🌸💖</span</p>";
+    }
+</script>
+
+</body>
+</html>

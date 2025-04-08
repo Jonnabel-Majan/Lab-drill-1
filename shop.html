@@ -1,0 +1,362 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Jonnabel's Handmade Crochet</title>
+    <link rel="icon" type="image/png" href="images/yarns.jpg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, white, #d16ba5);
+        }
+        header {
+            background: linear-gradient(135deg, #D16BA5, #bf5f82);
+            color: white;
+            padding: 35px;
+            text-align: center;
+            font-size: 45px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #bf5f82;
+            padding: 14px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            margin: 0 12px;
+            font-size: 30px;
+            font-weight: 500;
+            background: #D16BA5;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+        nav a:hover {
+            background: #a14c6b;
+            transform: translateY(-3px);
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px;
+            text-align: center;
+
+        }
+        .container h1 {
+            font-size: 60px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #D16BA5;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+
+        }
+        .container h3 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #D16BA5;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+        .product {
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.07);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+        .image-container {
+            width: 100%;
+            aspect-ratio: 1/1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        .product img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+        .product h4 {
+            margin: 5px;
+            font-size: 25px;
+            color: #D16BA5;    
+        }
+        .product p {
+            color: #D16BA5;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .product button {
+            background: #d16ba5;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .product button:hover {
+            background: #a14c6b;
+            transform: scale(1.1);
+        }
+
+        .custom-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background: white;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #D16BA5;
+            z-index: 1000;
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -55%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .alert-close {
+            background: #D16BA5;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .alert-close:hover {
+            background: #a14c6b;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #D16BA5, #bf5f82);
+            color: white;
+            text-align: center;
+            padding: 1px 20px;
+            font-size: 18px;
+            font-weight: 500;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .footer-contact, .footer-socials {
+            margin: 10px 20px;
+        }
+        .footer-contact h3, .footer-socials h3 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        .social-icon {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        .social-icon:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+        .footer-copy {
+            margin-top: 20px;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Jonnabel's Handmade Crochet</header>
+
+    <nav>
+        <a href="crochetshop.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="account.html">Account</a>
+    </nav>
+
+    <div class="container">
+        <h1>Our Crochet Collection</h1>
+
+        <h3>KEYCHAINS</h3>
+        <div class="products">
+            <div class="product">
+                <div class="image-container">
+                    <img src="images/strawberry.jpg" alt="Fruit Keychain">
+                </div>
+                <h4>Strawberry Keychain</h4>
+                <p>₱50 each</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <div class="image-container">
+                    <img src="images/minitulip.jpg" alt="Flower Keychain">
+                </div>
+                <h4>Tulip Keychain</h4>
+                <p>₱50 each</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+
+        <h3>CROCHET FLOWERS</h3>
+        <div class="products">
+            <div class="product">
+                <div class="image-container">
+                    <img src="images/tulips.webp" alt="Crochet Rose">
+                </div>
+                <h4>Crochet Tulip</h4>
+                <p>₱100 each</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <div class="image-container">
+                    <img src="images/sunflower.jpg" alt="Sunflower Crochet">
+                </div>
+                <h4>Crochet Sunflower</h4>
+                <p>₱100 each</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+
+        <h3>BANDANAS</h3>
+        <div class="products">
+            <div class="product">
+                <div class="image-container">
+                    <img src="images/strawbandana.jpg" alt="Handmade Crochet Hat">
+                </div>
+                <h4>Strawberry Bandana</h4>
+                <p>₱120 each</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <div class="image-container">
+                    <img src="images/daisybandana.webp" alt="Beanie">
+                </div>
+                <h4>Daisy Bandana</h4>
+                <p>₱120 each</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div id="customAlert" class="custom-alert">
+        <p id="alertMessage"></p>
+        <button class="alert-close" onclick="closeAlert()">OK</button>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-contact">
+                <h3>📞 Contact Us</h3>
+                <p>Email: <a href="https://g.co/kgs/TxM2F7h">JonnabelCrochet@gmail.com</a></p>
+            </div>
+            <div class="footer-socials">
+                <h3>🌍 Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/" target="_blank" class="social-icon">FB: Jocrochet</a>
+                    <a href="https://www.instagram.com/" target="_blank" class="social-icon">IG: Jocrochet</a>
+                </div>
+            </div>
+        </div>
+        <p>PROGRAMMED AND DEVELOPED BY JONNABEL E. MAJAN</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".product button");
+
+            buttons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    const product = this.parentElement;
+                    const productName = product.querySelector("h4").innerText;
+                    const productPriceText = product.querySelector("p").innerText;
+                    const productImage = product.querySelector("img").src;
+
+                    // Ensure price is correctly converted
+                    const productPrice = parseFloat(productPriceText.replace(/[^\d.]/g, "").trim());
+
+                    // Create cart item
+                    let cartItem = {
+                        name: productName,
+                        price: productPrice,
+                        image: productImage
+                    };
+
+                    // Retrieve cart from localStorage
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                    // Add product to cart
+                    cart.push(cartItem);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+
+                    // Show alert confirmation
+                    showAlert(productName + " has been added to your cart! You can check it in the Account section.");
+                });
+            });
+        });
+
+        function showAlert(message) {
+            document.getElementById("alertMessage").innerText = message;
+            document.getElementById("customAlert").style.display = "block";
+        }
+
+        function closeAlert() {
+            document.getElementById("customAlert").style.display = "none";
+        }
+    </script>
+</body>
+</html>
